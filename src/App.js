@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
 
+//import Barra from './components/Barra';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import NavAdmin from './components/components-Admins/NavAdmin';
+import RegistrarProducto from './components/components-Admins/RegistrarProducto';
+import VerClientes from "./components/components-Admins/VerClientes";
+import VerProductos from "./components/components-Admins/VerProductos";
+import FormCliente from "./components/components-cliente/FormCliente";
+import Login from "./components/Login";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+    {/**  <Barra /> */}
+  <NavAdmin/>
+<Route path="/" component={Login}/>
+  <Route path="/registrarProducto" exact component={RegistrarProducto}/>
+  <Route path="/verProductos" exact component={VerProductos}/>
+<Route path="/crearCliente" exact component={FormCliente}/>
+<Route path="/verClientes" exact component={VerClientes}/>
+    </Router>
   );
 }
 
